@@ -36,7 +36,7 @@ if(isset($_GET['id'])){
             </div>
             <div class="mb-3">
                 <label for="rasm" class="form-label">Rasm</label>
-                <img src="<?=$talaba->img?>" width="100" alt=""><br><br>
+                <img src="<?=$talaba->img?>" width="100" alt="" id="rasm"><br><br>
                 <input type="file" name="rasm" id="">
             </div>
             <div class="mb-3">
@@ -54,22 +54,24 @@ if(isset($_GET['id'])){
         $manzil = htmlspecialchars(strip_tags($_POST['manzil']));
         $info = htmlspecialchars(strip_tags($_POST['info']));
         if(empty($_FILES['rasm'])){
-            echo $talaba->img;
-            $rasmP = $talaba->img;
+            $data = [
+                "fio" => $name,
+                "tel" => $tel,
+                "manzil" => $manzil,
+                "info" => $info
+            ];
         }else{
             $rasm = explode('.',$_FILES['rasm']['name']);
             $rasmP = 'images/'.date("y-m-d_h-i-s.") . end($rasm);
-            move_uploaded_file($_FILES['rasm']["tmp_name"],$rasmP);
+            move_uploaded_file($_FILES['rasm']["tmp_name"],$rasmP); 
+            $data = [
+                "fio" => $name,
+                "tel" => $tel,
+                "manzil" => $manzil,
+                "info" => $info,
+                "img" => $rasmP
+                        ];
         }
-
-        $data = [
-            "fio" => $name,
-            "tel" => $tel,
-            "manzil" => $manzil,
-            "info" => $info,
-            "img" => $rasmP
-        ];
-        print_r($data);
         if(Talabalar::update($data,$id)){
             header("location:index.php");
         }else{
