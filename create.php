@@ -11,8 +11,8 @@
 <body class="bg-secondary">
     <form action="" method="POST" enctype="multipart/form-data">
         <div class="container mt-5">
-            <h1>Create Product</h1>
-            <a href="index.php" class="btn btn-primary mt-2">Products</a>
+            <h1>Create Talaba</h1>
+            <a href="index.php" class="btn btn-primary mt-2">Talabalar</a>
             <div class="mb-3 mt-4">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" id="name" placeholder="Name">
@@ -26,7 +26,7 @@
                 <input type="text" name="manzil" class="form-control" id="manzil" placeholder="Manzil">
             </div>
             <div class="mb-3">
-                <label for="price" class="form-label">Rasm</label>
+                <label for="rasm" class="form-label">Rasm</label>
                 <input type="file" name="rasm" class="form-control" id="price">
             </div>
             <div class="mb-3">

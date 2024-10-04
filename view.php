@@ -8,7 +8,6 @@ if(isset($_GET['id'])){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +16,7 @@ if(isset($_GET['id'])){
     <title>Document</title>
 </head>
 <body>
+    <h1>View</h1>
     <h1>Ismi:<?=$talaba->fio?></h1>
     <h2>Telefon raqami: <?=$talaba->tel?></h2>
     <h3>Manzili: <?=$talaba->manzil?></h3>
